@@ -1,22 +1,25 @@
 package com.krupa.maciej.model;
 
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.Objects;
+
 public class OneMinute {
-    private int infectedId;
+    private int id;
     private String hashedLocation;
     private String minuteTimestamp;
 
-    public OneMinute(int infectedId, String hashedLocation, String minuteTimestamp) {
-        this.infectedId = infectedId;
+    public OneMinute(String hashedLocation, String minuteTimestamp) {
         this.hashedLocation = hashedLocation;
         this.minuteTimestamp = minuteTimestamp;
     }
 
-    public int getInfectedId() {
-        return infectedId;
+    public int getId() {
+        return id;
     }
 
-    public void setInfectedId(int infectedId) {
-        this.infectedId = infectedId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getHashedLocation() {
@@ -33,5 +36,23 @@ public class OneMinute {
 
     public void setMinuteTimestamp(String minuteTimestamp) {
         this.minuteTimestamp = minuteTimestamp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OneMinute oneMinute = (OneMinute) o;
+        if (minuteTimestamp.equals(oneMinute.minuteTimestamp) &&
+                BCrypt.checkpw(hashedLocation, oneMinute.hashedLocation)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hashedLocation, minuteTimestamp);
     }
 }

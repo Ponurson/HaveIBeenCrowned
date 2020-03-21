@@ -1,0 +1,51 @@
+:root {
+    --link-color: #ff6600;
+    --light-link-color: #fffffa;
+    --background-color: #4b4c4a;
+    --lighter-background-color: #5a615f;
+    --lighter-text-color: #9fa292;
+    --dark-text: #000000;
+    --blue: #007bff;
+    --yellow: #ffc107;
+    --green: #1e7e34;
+    font-size: 16px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    background-color: #007bff;
+    margin: auto;
+    width: 50%;
+}
+
+.show {
+    display: inline-block;
+}
+
+.main-div {
+    border-radius: 25px;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #acb9c8;
+    opacity: 0.8;
+    text-align: center;
+}
+
+#drop_zone_infected {
+    border: 5px solid blue;
+    float:left;
+    width: 200px;
+    height: 100px;
+}
+
+#drop_zone_contact {
+    border: 5px solid red;
+    float:right;
+    width: 200px;
+    height: 100px;
+}
